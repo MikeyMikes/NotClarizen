@@ -1,0 +1,80 @@
+<div class="new-task-container">
+
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="data.newDescription" name="newDescription" 
+        placeholder="Task Description" [formControl]="descriptionFormControl">
+    </textarea>
+    <mat-error *ngIf="descriptionFormControl.hasError('required')">
+      Description is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.newStoryPoints" name="newStoryPoints" 
+        placeholder="Story Points" [formControl]="storyPointsFormControl">
+    <mat-error *ngIf="storyPointsFormControl.hasError('required')">
+      Number of story points is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="data.newSprint" name="sprint" placeholder="Select Sprint"
+      [formControl]="sprintFormControl">
+      <mat-option *ngFor="let sprint of sprints" [value]="sprint">{{sprint}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="sprintFormControl.hasError('required')">
+      Sprint number is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.newPriority" name="newPriority" 
+        placeholder="Priority" [formControl]="priorityFormControl">
+    <mat-error *ngIf="priorityFormControl.hasError('required')">
+      Priority is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="data.newTeam" name="food" placeholder="Select Team"
+      [formControl]="teamFormControl">
+      <mat-option *ngFor="let food of foods" [value]="food.value">{{food.value}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="teamFormControl.hasError('required')">
+      Team name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Optional Columns
+        </mat-panel-title>
+        <mat-panel-description></mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <mat-select [(ngModel)]="data.newStatus" name="status" placeholder="Select Status">
+          <mat-option *ngFor="let status of statuses" [value]="status.value">{{status.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput [(ngModel)]="data.newRequirements" name="requirements" 
+          placeholder="Requirements">
+        </textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput [(ngModel)]="data.newAcceptanceCriteria" name="acceptanceCriteria" 
+          placeholder="Acceptance Criteria">
+        </textarea>
+      </mat-form-field>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <button style="float:right; background:#b30055;" mat-raised-button [mat-dialog-close]="getTaskInfo()" cdkFocusInitial color="primary">Add Task</button>
+
+</div>

@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="signOut()" routerLink="" routerLinkActive="active">
+        <mat-icon>arrow_back</mat-icon>
+        <span>Logout</span>
+      </button>
+      <button mat-menu-item style="text-align: center">
+        <span>Settings</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,11 @@
+<div class="new-sprint-container">
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.newSprint" name="newSprint" 
+        placeholder="Sprint Number" [formControl]="descriptionFormControl">
+    <mat-error *ngIf="descriptionFormControl.hasError('required')">
+      Description is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button style="float:right; background:#b30055;" mat-raised-button [mat-dialog-close]="getSprintInfo()" cdkFocusInitial color="primary">Add Sprint</button>
+</div>

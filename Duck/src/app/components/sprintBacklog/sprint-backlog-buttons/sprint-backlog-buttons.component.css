@@ -1,0 +1,8 @@
+.example-button-row button,
+.example-button-row a {
+  margin: 3% 8px 8px 0;
+}
+
+.example-button-row{
+    margin-left: 5%;
+}

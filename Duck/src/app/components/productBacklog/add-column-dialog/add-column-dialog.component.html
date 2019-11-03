@@ -1,0 +1,18 @@
+<h3>Select Columns to Add</h3>
+
+<div style="margin-bottom:20px;">
+<mat-checkbox [(ngModel)]="data.status">Status</mat-checkbox>
+<br>
+<mat-checkbox [(ngModel)]="data.requirements">Requirements</mat-checkbox>
+<br>
+<mat-checkbox [(ngModel)]="data.acceptanceCriteria">Acceptance Criteria</mat-checkbox>
+</div>
+
+<section class="example-section">
+    <mat-slide-toggle [(ngModel)]="data.saveToProfile">
+      Remember my selections
+    </mat-slide-toggle>
+  </section>
+
+
+<button mat-raised-button style="float:right; background:#b30055;" [mat-dialog-close]="getColumnInfo()" cdkFocusInitial color="primary">Add</button>

@@ -1,0 +1,43 @@
+<mat-card>
+  <button mat-raised-button color="primary" routerLink="" routerLinkActive="active">
+    <mat-icon>arrow_back</mat-icon>
+    <span>Back</span>
+  </button>
+  <h1>Create Account</h1>
+  <form>
+    <mat-form-field>
+      <input matInput [(ngModel)]="newUsernameEntry" name="newUsernameEntry" 
+      placeholder="Please Enter Email" [formControl]="emailFormControl"
+              [errorStateMatcher]="matcher">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" [(ngModel)]="newPasswordEntry" #newPassword name="newPasswordEntry" 
+      placeholder="Please Enter Password" [formControl]="passwordFormControl"
+              [errorStateMatcher]="matcher">
+      <mat-error *ngIf="passwordFormControl.hasError('minlength') && !emailFormControl.hasError('required')">
+        Password must have at least 6 characters
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" [(ngModel)]="newPasswordConfirmationEntry" name="newPasswordConfirmationEntry" 
+      placeholder="Please Confirm Password" [formControl]="passwordConfirmFormControl"
+              [errorStateMatcher]="matcher">
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Confirmation is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button class="loginBtn" mat-raised-button color="primary" (click)="createUserWithEmailAndPassword()">Create Account</button>
+  </form>
+</mat-card>

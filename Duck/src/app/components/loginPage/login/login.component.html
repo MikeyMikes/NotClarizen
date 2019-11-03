@@ -1,0 +1,33 @@
+<mat-card>
+  <h1>Login</h1>
+  <form>
+    <mat-icon>account_circle</mat-icon>
+    <mat-form-field>
+      <input matInput [(ngModel)]="usernameEntry" name="usernameEntry" 
+      placeholder="Email" [formControl]="emailFormControl"
+              [errorStateMatcher]="matcher">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-icon>vpn_key</mat-icon>
+    <mat-form-field>
+      <input matInput type="password" [(ngModel)]="passwordEntry" name="passwordEntry" 
+      placeholder="Password" [formControl]="passwordFormControl"
+              [errorStateMatcher]="matcher">
+      <mat-error *ngIf="passwordFormControl.hasError('minlength') && !emailFormControl.hasError('required')">
+        Password must have at least 6 characters
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="signInWithEmailAndPassword()" routerLink="/home">Login</button>
+    <p>Not Registered?&nbsp;<a [routerLink]="['/createAccount']">Create Account Here!</a></p>
+  </form>
+</mat-card>
